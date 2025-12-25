@@ -7,40 +7,16 @@
     <link rel="stylesheet" href="/style.css" />
   </head>
   <body class="overlay-body">
-    <main class="overlay overlay-bar">
-      <header class="overlay-header overlay-bar-header">
-        <div class="team-name">
-          <span class="team-abbrev" id="leftAbbrev">TA</span>
-          <span id="leftTeam">Team A</span>
-        </div>
+    <main class="overlay">
+      <header class="overlay-header">
+        <div class="team-name" id="leftTeam">Team A</div>
         <div class="overlay-title">Pick / Ban</div>
-        <div class="team-name align-right">
-          <span id="rightTeam">Team B</span>
-          <span class="team-abbrev" id="rightAbbrev">TB</span>
-        </div>
+        <div class="team-name" id="rightTeam">Team B</div>
       </header>
 
-      <section class="overlay-strip">
-        <div class="ban-row">
-          <div class="ban-side" id="leftBans"></div>
-          <div class="match-center">
-            <div class="match-logos">
-              <div class="logo-pill">LOGO</div>
-              <span class="match-vs">VS</span>
-              <div class="logo-pill">LOGO</div>
-            </div>
-          </div>
-          <div class="ban-side" id="rightBans"></div>
-        </div>
-        <div class="pick-row">
-          <div class="pick-side" id="leftPicks"></div>
-          <div class="match-center">
-            <div class="team-abbrev-large" id="leftAbbrevLarge">TA</div>
-            <span class="match-vs">VS</span>
-            <div class="team-abbrev-large" id="rightAbbrevLarge">TB</div>
-          </div>
-          <div class="pick-side" id="rightPicks"></div>
-        </div>
+      <section class="overlay-section">
+        <div class="overlay-column" id="leftColumn"></div>
+        <div class="overlay-column" id="rightColumn"></div>
       </section>
     </main>
 

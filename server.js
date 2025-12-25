@@ -32,24 +32,6 @@ const slotKeys = [
 const defaultState = () => ({
   leftTeam: "Team A",
   rightTeam: "Team B",
-  leftAbbrev: "TA",
-  rightAbbrev: "TB",
-  players: {
-    left: [
-      { name: "Left Player 1", lane: "slayer" },
-      { name: "Left Player 2", lane: "jungle" },
-      { name: "Left Player 3", lane: "mid" },
-      { name: "Left Player 4", lane: "abyssal" },
-      { name: "Left Player 5", lane: "support" }
-    ],
-    right: [
-      { name: "Right Player 1", lane: "slayer" },
-      { name: "Right Player 2", lane: "jungle" },
-      { name: "Right Player 3", lane: "mid" },
-      { name: "Right Player 4", lane: "abyssal" },
-      { name: "Right Player 5", lane: "support" }
-    ]
-  },
   slots: Object.fromEntries(slotKeys.map((key) => [key, null]))
 });
 
@@ -87,37 +69,12 @@ wss.on("connection", (ws) => {
     }
 
     if (message.type === "setTeams") {
-      const { leftTeam, rightTeam, leftAbbrev, rightAbbrev } =
-        message.payload || {};
+      const { leftTeam, rightTeam } = message.payload || {};
       if (typeof leftTeam === "string") {
         state.leftTeam = leftTeam;
       }
       if (typeof rightTeam === "string") {
         state.rightTeam = rightTeam;
-      }
-      if (typeof leftAbbrev === "string") {
-        state.leftAbbrev = leftAbbrev;
-      }
-      if (typeof rightAbbrev === "string") {
-        state.rightAbbrev = rightAbbrev;
-      }
-      broadcast();
-      return;
-    }
-
-    if (message.type === "setPlayers") {
-      const { left, right } = message.payload || {};
-      if (Array.isArray(left) && left.length === 5) {
-        state.players.left = left.map((player) => ({
-          name: String(player.name || ""),
-          lane: String(player.lane || "")
-        }));
-      }
-      if (Array.isArray(right) && right.length === 5) {
-        state.players.right = right.map((player) => ({
-          name: String(player.name || ""),
-          lane: String(player.lane || "")
-        }));
       }
       broadcast();
       return;

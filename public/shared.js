@@ -13,14 +13,6 @@ const heroes = [
   { id: "raz", name: "Raz" }
 ];
 
-const lanes = [
-  { id: "slayer", label: "Solo Lane", short: "SL" },
-  { id: "jungle", label: "Jungle", short: "JG" },
-  { id: "mid", label: "Mid Lane", short: "MID" },
-  { id: "abyssal", label: "Abyssal", short: "AD" },
-  { id: "support", label: "Support", short: "SP" }
-];
-
 const slotGroups = [
   {
     label: "Ban ทีมซ้าย",
@@ -61,22 +53,3 @@ const slotLabel = (key) =>
     .replace(/-/, " ");
 
 const heroNameById = (id) => heroes.find((hero) => hero.id === id)?.name || "";
-
-const defaultPlayers = (prefix) => [
-  { name: `${prefix} Player 1`, lane: "slayer" },
-  { name: `${prefix} Player 2`, lane: "jungle" },
-  { name: `${prefix} Player 3`, lane: "mid" },
-  { name: `${prefix} Player 4`, lane: "abyssal" },
-  { name: `${prefix} Player 5`, lane: "support" }
-];
-
-const initialState = () => ({
-  leftTeam: "Team A",
-  rightTeam: "Team B",
-  leftAbbrev: "TA",
-  rightAbbrev: "TB",
-  players: {
-    left: defaultPlayers("Left"),
-    right: defaultPlayers("Right")
-  }
-});

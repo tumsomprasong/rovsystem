@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AoV Pick/Ban Control</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <main class="page">
+      <header class="header">
+        <div>
+          <h1>Control Panel</h1>
+          <p>จัดการ Pick/Ban แบบเรียลไทม์สำหรับงานถ่ายทอดสด</p>
+        </div>
+        <div class="header-actions">
+          <button id="resetButton" class="button ghost">รีเซ็ตดราฟต์</button>
+          <a class="button" href="/overlay.html" target="_blank">เปิด Overlay</a>
+        </div>
+      </header>
+
+      <section class="card">
+        <h2>ข้อมูลทีม</h2>
+        <div class="team-form">
+          <label>
+            ทีมซ้าย
+            <input id="leftTeamInput" type="text" placeholder="Team A" />
+          </label>
+          <label>
+            ตัวย่อทีมซ้าย
+            <input id="leftAbbrevInput" type="text" placeholder="TA" />
+          </label>
+          <label>
+            ทีมขวา
+            <input id="rightTeamInput" type="text" placeholder="Team B" />
+          </label>
+          <label>
+            ตัวย่อทีมขวา
+            <input id="rightAbbrevInput" type="text" placeholder="TB" />
+          </label>
+          <button id="saveTeams" class="button">บันทึกชื่อทีม</button>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>รายชื่อผู้เล่นและเลน</h2>
+        <div class="players-grid">
+          <div>
+            <h3>ทีมซ้าย</h3>
+            <div id="leftPlayers" class="players-list"></div>
+          </div>
+          <div>
+            <h3>ทีมขวา</h3>
+            <div id="rightPlayers" class="players-list"></div>
+          </div>
+        </div>
+        <button id="savePlayers" class="button">บันทึกรายชื่อผู้เล่น</button>
+      </section>
+
+      <section class="card">
+        <h2>เลือกฮีโร่</h2>
+        <div class="selection-grid">
+          <div>
+            <label for="slotSelect">เลือกช่อง</label>
+            <select id="slotSelect"></select>
+          </div>
+          <div>
+            <label for="heroSelect">เลือกฮีโร่</label>
+            <select id="heroSelect"></select>
+          </div>
+          <div class="selection-actions">
+            <button id="assignHero" class="button">ยืนยัน</button>
+            <button id="clearHero" class="button ghost">ล้างช่อง</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>สถานะดราฟต์</h2>
+        <div id="statusBoard" class="status-board"></div>
+      </section>
+    </main>
+
+    <script src="/shared.js"></script>
+    <script src="/app.js"></script>
+  </body>
+</html>
